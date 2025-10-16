@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+A hello text is added here
+<<<<<<< HEAD
+Try to cherry pick this push so that is excluded!
+=======
+>>>>>>> 8b7f549 (Add comment in hello txt file)
+=======
+A hello text is added here
+Try to cherry pick this push so that is excluded!
+>>>>>>> 0e7943c (Add comment in hello txt file for cherry pick)
