@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 22bc513 (Add comment in hello txt file for cherry pick x2)
 A hello text is added here
 <<<<<<< HEAD
 Try to cherry pick this push so that is excluded!
 =======
 >>>>>>> 8b7f549 (Add comment in hello txt file)
+<<<<<<< HEAD
 =======
 A hello text is added here
 Try to cherry pick this push so that is excluded!
@@ -11,3 +15,5 @@ Try to cherry pick this push so that is excluded!
 >>>>>>> 0e7943c (Add comment in hello txt file for cherry pick)
 =======
 >>>>>>> 0e7943c (Add comment in hello txt file for cherry pick)
+=======
+>>>>>>> 22bc513 (Add comment in hello txt file for cherry pick x2)
