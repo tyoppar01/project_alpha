@@ -7,4 +7,7 @@ Try to cherry pick this push so that is excluded!
 =======
 A hello text is added here
 Try to cherry pick this push so that is excluded!
+<<<<<<< HEAD
+>>>>>>> 0e7943c (Add comment in hello txt file for cherry pick)
+=======
 >>>>>>> 0e7943c (Add comment in hello txt file for cherry pick)
