@@ -1,2 +1,5 @@
 A hello text is added here
+<<<<<<< HEAD
 Try to cherry pick this push so that is excluded!
+=======
+>>>>>>> 8b7f549 (Add comment in hello txt file)
