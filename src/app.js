@@ -1,6 +1,6 @@
 /**
  * 
- * @param {number} contactId 
+ * @param {} contactId 
  * @returns 
  */
 async function getContact(contactId) {
