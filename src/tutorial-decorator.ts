@@ -53,6 +53,7 @@ function authorize(role: string) {
   };
 }
 
+/** auditable function in decorator file */
 function auditable(target: object, key: string | symbol) {
       // get the init val, before the decorator is applied
       let val = target[key];

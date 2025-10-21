@@ -1,3 +1,7 @@
+//import {formatDate} from "./utils" 
+
+const formattedDate = formatDate(new Date());
+
 enum TodoStatus {
       done = "Done",
       inProgress = "in-progress",
