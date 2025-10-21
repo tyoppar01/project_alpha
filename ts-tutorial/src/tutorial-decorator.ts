@@ -73,10 +73,10 @@ function auditable(target: object, key: string | symbol) {
 @freeze
 @singleton
 class ContactRepository {
-      @auditable
+      //@auditable
       private contacts: Contact[] = [];
 
-  @authorize("ContactViewer")
+  //@authorize("ContactViewer")
   getContactById(id: number): Contact | null {
     if (!currentUser.isInRole("ContactViewer")) {
       throw Error("User not authorized to execute this action");
@@ -87,7 +87,7 @@ class ContactRepository {
     return contact;
   }
 
-  @authorize("ContentEditor")
+  //@authorize("ContentEditor")
   save(contact: Contact): void {
     const existing = this.getContactById(contact.id);
 
