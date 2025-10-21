@@ -1,0 +1,12 @@
+{
+      "compilerOptions": {
+            "target": "esnext", 
+            "outDir": "build", 
+            "noEmit": true, // do not emit output files
+            "allowJs": true,
+            "checkJs": true,
+            "sourceMap": true,
+            "module":"CommonJS"
+      },
+      "include": ["src/**/*"]
+}
