@@ -1,0 +1,24 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+  background: #fafafa;
+}
+
+#todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+button {
+  cursor: pointer;
+}
