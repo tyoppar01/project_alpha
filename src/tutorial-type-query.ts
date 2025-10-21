@@ -1,9 +1,16 @@
+/**
+ * Specialized for modifying existing types, Utility Method
+ * 
+ * Omit - can exclude attributes that do not wish to be included
+ * Pick - Opposite of Omit method
+ * Partial - can be any partial of an object (make all optional)
+ * Required - Opposite of Partial
+ */
+
 function query<T>(
     items: T[],
     query: 
     {
-      // Record<keyof T, (val: T[keyof T]) => boolean> 
-
       // Below method is more appropriate
       [TProp in keyof T]?: (val: T[TProp]) => boolean
     }
