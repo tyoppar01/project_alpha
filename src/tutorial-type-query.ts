@@ -9,10 +9,8 @@
 
 function query<T>(
     items: T[],
-    query: 
-    {
-      // Below method is more appropriate
-      [TProp in keyof T]?: (val: T[TProp]) => boolean
+    query: {
+        [TProp in keyof T]?: (val: T[TProp]) => boolean
     }
 ) {
     return items.filter(item => {
