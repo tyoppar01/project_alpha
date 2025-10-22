@@ -2,12 +2,17 @@ import { ToDoItem } from "../models/todoItem";
 import { Status } from "../types/status.enum";
 
 class ToDoService {
-      static getToDoItems(): ToDoItem[] {
-            throw new Error("Method not implemented.");
-      }
 
       private static instance: ToDoService;
       private toDoItems: ToDoItem[] = [];
+      static getToDoItems: any;
+
+      public static getInstance(): ToDoService {
+      if (!ToDoService.instance) {
+            ToDoService.instance = new ToDoService();
+      }
+      return ToDoService.instance;
+      }
 
       private constructor() {
             this.addTask({ id: 101, title: "Brush Teeth", status:  Status.d });
@@ -15,7 +20,7 @@ class ToDoService {
       }
 
       public getToDoItems(): ToDoItem[] {
-            return this.toDoItems;
+            return [...this.toDoItems];
       }
 
       public addTask(task: ToDoItem): void {
@@ -23,11 +28,11 @@ class ToDoService {
       }
 
       public removeTask(id: number): void {
-            this.toDoItems.filter(x => x.id !== id);
+            this.toDoItems = this.toDoItems.filter(x => x.id !== id);
       }
 
       public updateTask(task: ToDoItem): void {
-            this.toDoItems.map(x => x.id === task.id ? task : x);
+            this.toDoItems = this.toDoItems.map(x => x.id === task.id ? task : x);
       }
 
 }

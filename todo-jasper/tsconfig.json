@@ -1,13 +1,14 @@
 {
       "compilerOptions": {
-            "target": "es6", 
+            "target": "ES6", 
+            "module":"esnext",
+            "rootDir": "./src",
             "outDir": "./dist", 
-            //"noEmit": true, // do not emit output files
-            "allowJs": true,
-            "checkJs": true,
+            "strict": true,
             "sourceMap": true,
-            "module":"CommonJS",
-            //"strict": true
+            "esModuleInterop": true,
+            "moduleResolution": "node"
+            //"noEmit": true, // do not emit output files
       },
-      "include": ["main.ts"]
+      "include": ["src"]
 }
