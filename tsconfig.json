@@ -5,7 +5,10 @@
             "noEmit": true, // do not emit output files
             "allowJs": true,
             "checkJs": true,
-            "sourceMap": true
+            "sourceMap": true,
+            "experimentalDecorators": true,
+            "emitDecoratorMetadata": true,
+            
       },
       "include": ["src/**/*"]
 }
