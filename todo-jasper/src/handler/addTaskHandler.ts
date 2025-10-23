@@ -16,5 +16,6 @@ export function addTaskHandle(input:HTMLInputElement, taskList: HTMLUListElement
 
       const taskName = input.value.trim();
       todoService.addTask(taskName);
+      logger.info(`added a new task [task name: ${taskName}]`);
       renderList(taskList);
 }

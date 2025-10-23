@@ -1,4 +1,4 @@
-import { deleteElement } from "../handler/deleteTaskHandler.js";
+import { deleteElement, deleteTaskEventListener } from "../handler/deleteTaskHandler.js";
 import { ToDoItem } from "../models/todoItem";
 import ToDoService from "../services/todoService.js";
 
@@ -13,15 +13,9 @@ export function renderList(taskList: HTMLUListElement, tasks: ToDoItem[] = todoS
             // create card item
             const li = document.createElement("li");
             
-            // delete task button
+            // delete task button and event handler
             const deleteButton = deleteElement();
-
-            // delete task event
-            deleteButton.addEventListener("click", (e) => {
-                  e.stopPropagation();
-                  todoService.removeTask(task.id);
-                  renderList(taskList);
-            })
+            deleteButton.addEventListener("click", deleteTaskEventListener(task.id, taskList))
 
             // append into list
             li.textContent = `${task.title} (${task.status})`;

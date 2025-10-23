@@ -6,5 +6,4 @@ const addButton = document.getElementById("add-task") as HTMLButtonElement;
 const taskList = document.getElementById("todo-list") as HTMLUListElement;
 
 addButton.addEventListener("click", () => { addTaskHandle(input, taskList); })
-
 renderList(taskList);
