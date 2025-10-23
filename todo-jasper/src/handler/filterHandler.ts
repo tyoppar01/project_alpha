@@ -14,13 +14,9 @@ export function filterCompletedHandle(taskList: HTMLUListElement): void {
 
 }
 
-export function filterSearchHandle(keyword: HTMLInputElement, taskList: HTMLUListElement): void {
-
-      if (keyword && keyword.value.trim() !== "") {
-            const stateManager = StateUtil.getInstance();
-            const logger = Logger.getInstance();
-            logger.info("search keyword has updated")
-            stateManager.setKeyWord(keyword.value.trim());
-      }
+export function filterSearchHandle(input: HTMLInputElement, taskList: HTMLUListElement): void {
+      const stateManager = StateUtil.getInstance();
+      const keyword =  input?.value.trim() ?? "";
+      stateManager.setKeyWord(keyword);
       renderList(taskList);
 }
