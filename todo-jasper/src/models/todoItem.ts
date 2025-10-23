@@ -1,9 +1,11 @@
-import { Priority } from "../types/priority.enum";
 import { Status } from "../types/status.enum";
-import { Tagging } from "../types/tag.enum";
+
+type Priority = "low" | "medium" | "high";
+type Tag = "work" | "study" | "daily" | "misc";
+type Tagging = Priority | Tag;
 
 export interface ToDoItem {
-      id: number;
+      readonly id: number;
       title: string;
       status: Status;
       dueOn? : Date;
