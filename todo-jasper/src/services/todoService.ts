@@ -34,8 +34,12 @@ class ToDoService {
             }
       }
 
-      public getToDoItems(): ToDoItem[] {
-            return [...this.toDoItems];
+      // public getToDoItems(): ToDoItem[] {
+      //       return [...this.toDoItems];
+      // }
+
+      public getToDoItems(): Pick<ToDoItem, "id" | "title" | "status">[] {
+            return this.toDoItems.map(({ id, title, status }) => ({ id, title, status }));
       }
 
       public removeTask(id: number): void {
