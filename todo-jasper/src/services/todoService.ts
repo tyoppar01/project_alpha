@@ -17,13 +17,13 @@ class ToDoService {
 
       private constructor() {
             this.addTask({ id: 344365, title: "Brush Teeth", status:  Status.d });
-            this.addTask({ id: 347291,title: "Jogging", status: Status.p });
+            this.addTask({ id: 347291,title: "Jogging", status: Status.o });
       }
 
       public addTask<T extends ToDoItem | string>(task: T): void {
             if (typeof task === "string") {
                   const randomNumber = RandomTaskId();
-                  const newItem: ToDoItem = { id: randomNumber, title: task, status: Status.p }
+                  const newItem: ToDoItem = { id: randomNumber, title: task, status: Status.o }
                   this.toDoItems.push(newItem);
             } else {
                   this.toDoItems.push(task);
