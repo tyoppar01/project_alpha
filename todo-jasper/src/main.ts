@@ -2,6 +2,7 @@ import { ToDoItem } from "./models/todoItem";
 import { Logger } from "./utils/logger.js";
 import { ErrorCode } from "./types/error.enum.js";
 import ToDoService from "./services/todoService.js";
+import { renderList } from "./components/cardList.js";
 
 const todoService = ToDoService.getInstance();
 const logger = Logger.getInstance();
@@ -17,21 +18,7 @@ addButton.addEventListener("click", () => {
 
     const taskName = input.value.trim();
     todoService.addTask(taskName);
-    renderList();
+    renderList(taskList);
 })
 
-function renderList(tasks: ToDoItem[] = todoService.getToDoItems() ) {
-    
-    taskList.innerHTML = "";
-
-    tasks.forEach(task => {
-        const li = document.createElement("li");
-        li.textContent = `${task.title} (${task.status})`;
-        taskList.appendChild(li);
-
-        console.log(li);
-    });  
-    
-}
-
-renderList();
+renderList(taskList);
