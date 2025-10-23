@@ -71,3 +71,22 @@ button {
   max-height: 200px;
 }
 
+.input-row {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;      
+  gap: 10px;
+}
+
+.left-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.right-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
