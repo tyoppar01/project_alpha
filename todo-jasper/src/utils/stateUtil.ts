@@ -4,8 +4,11 @@ export class StateUtil {
 
       private showCompleted: boolean;
 
+      private keyword: string;
+
       private constructor(private serviceName = "StateUtil") {
             this.showCompleted = false;
+            this.keyword = "";
       }
 
       public static getInstance(): StateUtil {
@@ -21,6 +24,14 @@ export class StateUtil {
 
       public switchShowCompleted(): void {
             this.showCompleted = !this.showCompleted;
+      }
+
+      public setKeyWord(input: string): void {
+            this.keyword = input;
+      }
+
+      public getKeyWord(): string {
+            return this.keyword;
       }
 
 }

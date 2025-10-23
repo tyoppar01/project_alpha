@@ -13,3 +13,14 @@ export function filterCompletedHandle(taskList: HTMLUListElement): void {
       renderList(taskList);
 
 }
+
+export function filterSearchHandle(keyword: HTMLInputElement, taskList: HTMLUListElement): void {
+
+      if (keyword && keyword.value.trim() !== "") {
+            const stateManager = StateUtil.getInstance();
+            const logger = Logger.getInstance();
+            logger.info("search keyword has updated")
+            stateManager.setKeyWord(keyword.value.trim());
+      }
+      renderList(taskList);
+}
