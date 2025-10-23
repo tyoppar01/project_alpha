@@ -12,7 +12,9 @@ export function renderList(taskList: HTMLUListElement, tasks: ToDoItem[] = todoS
       taskList.innerHTML = "";
 
       const displayList = tasks;
-      const filterList: ToDoItem[] = stateManager.getShowCompleted() ? displayList : displayList.filter( x => x.status !== Status.d )
+      const keyword = stateManager.getKeyWord();
+      const showCompleted = stateManager.getShowCompleted();
+      const filterList: ToDoItem[] = displayList.filter(x => x.status !== Status.d || showCompleted).filter(x => x.title.toLowerCase().includes(keyword));
 
       filterList.forEach(task => {
 
