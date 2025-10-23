@@ -42,8 +42,12 @@ class ToDoService {
             this.toDoItems = this.toDoItems.filter(x => x.id !== id);
       }
 
-      public updateTask(task: ToDoItem): void {
-            this.toDoItems = this.toDoItems.map(x => x.id === task.id ? task : x);
+      // public updateTask(task: ToDoItem): void {
+      //       this.toDoItems = this.toDoItems.map(x => x.id === task.id ? task : x);
+      // }
+
+      public updateTask(id: number, updates: Partial<Omit<ToDoItem, "id">>): void {
+            this.toDoItems = this.toDoItems.map(x => x.id === id ? { ...x, ...updates } : x );
       }
 
 }

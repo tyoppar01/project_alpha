@@ -11,9 +11,9 @@ export function updateStatusEventListener(task: ToDoItem, taskList: HTMLUListEle
       
       return (event: Event) => {
             event.stopPropagation();
-            task.status = task.status === Status.d ? Status.o : Status.d;
-            todoService.updateTask(task);
-            logger.info(`task_id: ${task.id} has changed status`);
+            const newStatus: Status = task.status === Status.d ? Status.o : Status.d;
+            todoService.updateTask(task.id, { status : newStatus });
+            logger.info(`task: ${task.title} has changed status`);
             renderList(taskList);
       }
 }
