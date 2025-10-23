@@ -1,5 +1,5 @@
-import { ToDoItem } from "../models/todoItem";
-import { Status } from "../types/status.enum";
+import { ToDoItem } from "../models/todoItem.js";
+import { Status } from "../types/status.enum.js";
 
 class ToDoService {
 
@@ -19,12 +19,18 @@ class ToDoService {
             this.addTask({ id: 102,title: "Jogging", status: Status.p });
       }
 
-      public getToDoItems(): ToDoItem[] {
-            return [...this.toDoItems];
+      public addTask<T extends ToDoItem | string>(task: T): void {
+            if (typeof task === "string") {
+                  const randomNumber = Math.random();
+                  const newItem: ToDoItem = { id: randomNumber, title: task, status: Status.p }
+                  this.toDoItems.push(newItem);
+            } else {
+                  this.toDoItems.push(task);
+            }
       }
 
-      public addTask(task: ToDoItem): void {
-            this.toDoItems.push(task);
+      public getToDoItems(): ToDoItem[] {
+            return [...this.toDoItems];
       }
 
       public removeTask(id: number): void {
