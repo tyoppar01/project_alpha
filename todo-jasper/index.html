@@ -7,8 +7,19 @@
 </head>
 <body>
   <h1>To-Do List</h1>
-  <input id="task-name-input" type="text" placeholder="Add a task..." />
-  <button id="add-task">Add Task</button>
+  <div class="input-row">
+
+    <div class="left-group">
+      <input id="task-name-input" type="text" placeholder="Add a task..." />
+      <button button id="add-task">Add Task</button>
+    </div>
+
+    <div class="right-group">
+      <input type="checkbox" id="show-completed" >
+      <label for="show-completed">Show completed</label> 
+    </div>
+
+  </div>
 
   <ul id="todo-list"></ul>
 
