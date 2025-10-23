@@ -16,8 +16,12 @@ class ToDoService {
       }
 
       private constructor() {
-            this.addTask({ id: 344365, title: "Brush Teeth", status:  Status.d });
-            this.addTask({ id: 347291,title: "Jogging", status: Status.o });
+
+            const task1: ToDoItem = { id: 344365, title: "Brush Teeth", status:  Status.d }
+            const task2: ToDoItem = { id: 347291,title: "Jogging", status: Status.o }
+
+            this.addTask(task1);
+            this.addTask(task2);
       }
 
       public addTask<T extends ToDoItem | string>(task: T): void {
