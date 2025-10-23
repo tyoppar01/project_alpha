@@ -1,5 +1,6 @@
 import { ToDoItem } from "../models/todoItem.js";
 import { Status } from "../types/status.enum.js";
+import { RandomTaskId } from "../utils/mathUtil.js";
 
 class ToDoService {
 
@@ -15,13 +16,13 @@ class ToDoService {
       }
 
       private constructor() {
-            this.addTask({ id: 101, title: "Brush Teeth", status:  Status.d });
-            this.addTask({ id: 102,title: "Jogging", status: Status.p });
+            this.addTask({ id: 344365, title: "Brush Teeth", status:  Status.d });
+            this.addTask({ id: 347291,title: "Jogging", status: Status.p });
       }
 
       public addTask<T extends ToDoItem | string>(task: T): void {
             if (typeof task === "string") {
-                  const randomNumber = Math.random();
+                  const randomNumber = RandomTaskId();
                   const newItem: ToDoItem = { id: randomNumber, title: task, status: Status.p }
                   this.toDoItems.push(newItem);
             } else {
