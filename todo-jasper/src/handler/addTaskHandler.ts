@@ -8,11 +8,16 @@ type inputType = undefined | string;
 const todoService = ToDoService.getInstance();
 const logger = Logger.getInstance();
 
+const logPrefixTask = "in put task";
+
 export function addTaskHandle(input:HTMLInputElement, taskList: HTMLUListElement) {
       if (!input || input.value.trim() === "") {
-            logger.warn(`to do task ${ErrorCode.EMPTYINPUT}`)
+            logger.warn(`${logPrefixTask} ${ErrorCode.EMPTYINPUT}`)
             return;
       }
+      if(input.value.trim.length > 50) {
+            logger.warn(`${logPrefixTask} ${ErrorCode.EMPTYINPUT}`)
+      } 
 
       const taskName = input.value.trim();
       todoService.addTask(taskName);
