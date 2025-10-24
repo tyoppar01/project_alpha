@@ -34,10 +34,6 @@ class ToDoService {
             }
       }
 
-      // public getToDoItems(): ToDoItem[] {
-      //       return [...this.toDoItems];
-      // }
-
       public getToDoItems(): Pick<ToDoItem, "id" | "title" | "status">[] {
             return this.toDoItems.map(({ id, title, status }) => ({ id, title, status }));
       }
@@ -45,10 +41,6 @@ class ToDoService {
       public removeTask(id: number): void {
             this.toDoItems = this.toDoItems.filter(x => x.id !== id);
       }
-
-      // public updateTask(task: ToDoItem): void {
-      //       this.toDoItems = this.toDoItems.map(x => x.id === task.id ? task : x);
-      // }
 
       public updateTask(id: number, updates: Partial<Omit<ToDoItem, "id">>): void {
             this.toDoItems = this.toDoItems.map(x => x.id === id ? { ...x, ...updates } : x );
