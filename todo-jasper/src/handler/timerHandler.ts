@@ -38,7 +38,7 @@ export class PomodoroTimer {
       this.updateCircle();
     } else {
       this.pause();
-      alert("🍅 Pomodoro session complete!");
+      alert("Times up! Please track your to do list!");
     }
   }
 
