@@ -1,5 +1,5 @@
 export class PomodoroTimer {
-  private totalTime = 10;
+  private totalTime = 25 * 60;
   private remainingTime = this.totalTime;
   private intervalId: number | null = null;
   private isRunning = false;
