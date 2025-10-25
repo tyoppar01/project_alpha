@@ -1,6 +1,6 @@
-import { ToDoItem } from "../models/todoItem.js";
-import { Status } from "../types/status.enum.js";
-import { RandomTaskId } from "../utils/mathUtil.js";
+import { Priority, priorMap, ToDoItem } from "../models/todoItem.js";
+import { Status } from "../core/types/status.enum.js";
+import { RandomTaskId } from "../core/utils/mathUtil.js";
 
 class ToDoService {
 
@@ -17,8 +17,8 @@ class ToDoService {
 
       private constructor() {
 
-            const task1: ToDoItem = { id: 344365, title: "Brush Teeth", status:  Status.d }
-            const task2: ToDoItem = { id: 347291,title: "Jogging", status: Status.o }
+            const task1: ToDoItem = { id: 344365, title: "Brush Teeth", status:  Status.d, priority: "low"}
+            const task2: ToDoItem = { id: 347291,title: "Jogging", status: Status.o, priority: "high" }
 
             this.addTask(task1);
             this.addTask(task2);
@@ -26,16 +26,15 @@ class ToDoService {
 
       public addTask<T extends ToDoItem | string>(task: T): void {
             if (typeof task === "string") {
-                  const randomNumber = RandomTaskId();
-                  const newItem: ToDoItem = { id: randomNumber, title: task, status: Status.o }
+                  const newItem: ToDoItem = { id: RandomTaskId(), title: task, status: Status.o, priority: priorMap["unlisted"] as Priority }
                   this.toDoItems.push(newItem);
             } else {
                   this.toDoItems.push(task);
             }
       }
 
-      public getToDoItems(): Pick<ToDoItem, "id" | "title" | "status">[] {
-            return this.toDoItems.map(({ id, title, status }) => ({ id, title, status }));
+      public getToDoItems(): Pick<ToDoItem, "id" | "title" | "status" | "priority">[] {
+            return this.toDoItems.map(({ id, title, status, priority }) => ({ id, title, status, priority }));
       }
 
       public removeTask(id: number): void {

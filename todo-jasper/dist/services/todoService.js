@@ -1,4 +1,6 @@
-import { Status } from "../types/status.enum.js";
+import { priorMap } from "../models/todoItem.js";
+import { Status } from "../core/types/status.enum.js";
+import { RandomTaskId } from "../core/utils/mathUtil.js";
 class ToDoService {
     static getInstance() {
         if (!ToDoService.instance) {
@@ -8,20 +10,28 @@ class ToDoService {
     }
     constructor() {
         this.toDoItems = [];
-        this.addTask({ id: 101, title: "Brush Teeth", status: Status.d });
-        this.addTask({ id: 102, title: "Jogging", status: Status.p });
-    }
-    getToDoItems() {
-        return [...this.toDoItems];
+        const task1 = { id: 344365, title: "Brush Teeth", status: Status.d, priority: "low" };
+        const task2 = { id: 347291, title: "Jogging", status: Status.o, priority: "high" };
+        this.addTask(task1);
+        this.addTask(task2);
     }
     addTask(task) {
-        this.toDoItems.push(task);
+        if (typeof task === "string") {
+            const newItem = { id: RandomTaskId(), title: task, status: Status.o, priority: priorMap["unlisted"] };
+            this.toDoItems.push(newItem);
+        }
+        else {
+            this.toDoItems.push(task);
+        }
+    }
+    getToDoItems() {
+        return this.toDoItems.map(({ id, title, status, priority }) => ({ id, title, status, priority }));
     }
     removeTask(id) {
         this.toDoItems = this.toDoItems.filter(x => x.id !== id);
     }
-    updateTask(task) {
-        this.toDoItems = this.toDoItems.map(x => x.id === task.id ? task : x);
+    updateTask(id, updates) {
+        this.toDoItems = this.toDoItems.map(x => x.id === id ? Object.assign(Object.assign({}, x), updates) : x);
     }
 }
 export default ToDoService;

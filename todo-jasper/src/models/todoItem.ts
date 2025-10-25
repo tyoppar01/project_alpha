@@ -1,8 +1,15 @@
-import { Status } from "../types/status.enum";
+import { Status } from "../core/types/status.enum.js";
 
-type Priority = "low" | "medium" | "high";
+export type Priority = "low" | "medium" | "high" | "unlisted";
 type Tag = "work" | "study" | "daily" | "misc";
 type Tagging = Priority | Tag;
+
+export const priorMap: Record<Priority, string> = {
+  high: "prior-high",
+  medium: "prior-medium",
+  low: "prior-low",
+  unlisted: "prior-none"
+};
 
 export interface ToDoItem {
       readonly id: number;

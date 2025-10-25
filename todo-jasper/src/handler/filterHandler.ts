@@ -1,6 +1,6 @@
 import { renderList } from "../components/cardList.js";
-import { Logger } from "../utils/logger.js";
-import { StateUtil } from "../utils/stateUtil.js";
+import { Logger } from "../core/utils/logger.js";
+import { StateUtil } from "../core/utils/stateUtil.js";
 
 export function filterCompletedHandle(taskList: HTMLUListElement): void {
 

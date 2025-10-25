@@ -1,6 +1,6 @@
 import { renderList } from "../components/cardList.js";
 import ToDoService from "../services/todoService.js";
-import { Logger } from "../utils/logger.js";
+import { Logger } from "../core/utils/logger.js";
 
 const todoService = ToDoService.getInstance();
 const logger = Logger.getInstance();

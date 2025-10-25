@@ -1,7 +1,10 @@
 import { renderList } from "../components/cardList.js";
 import ToDoService from "../services/todoService.js";
-import { ErrorCode } from "../types/error.enum.js";
-import { Logger } from "../utils/logger.js";
+import { ErrorCode } from "../core/types/error.enum.js";
+import { Logger } from "../core/utils/logger.js";
+import { Priority, ToDoItem } from "../models/todoItem.js";
+import { RandomTaskId } from "../core/utils/mathUtil.js";
+import { Status } from "../core/types/status.enum.js";
 
 type inputType = undefined | string;
 
@@ -10,7 +13,7 @@ const logger = Logger.getInstance();
 
 const logPrefixTask = "input task";
 
-export function addTaskHandle(input:HTMLInputElement, taskList: HTMLUListElement) {
+export function addTaskHandle(input:HTMLInputElement, priority:HTMLSelectElement, taskList: HTMLUListElement) {
       if (!input || input.value.trim() === "") {
             logger.warn(`${logPrefixTask} ${ErrorCode.EMPTYINPUT}`)
             return;
@@ -21,8 +24,10 @@ export function addTaskHandle(input:HTMLInputElement, taskList: HTMLUListElement
             return;
       } 
 
+      // create object, to do item
       const taskName = input.value.trim();
-      todoService.addTask(taskName);
-      logger.info(`added a new task [task name: ${taskName}]`);
+      const newItem: ToDoItem = { id: RandomTaskId(), title: taskName, status: Status.o, priority: priority.value as Priority }
+      todoService.addTask(newItem);
+      logger.info(`Added a new task [title: ${taskName}][status: ${newItem.status}][priority: ${newItem.priority}]`);
       renderList(taskList);
 }
