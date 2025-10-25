@@ -1,9 +1,10 @@
 import { deleteElement, deleteTaskEventListener } from "../handler/deleteTaskHandler.js";
 import { updateStatusEventListener } from "../handler/updateTaskHandler.js";
-import { ToDoItem, Priority, priorMap } from "../models/todoItem.js";
+import { ToDoItem, priorMap } from "../models/todoItem.js";
 import ToDoService from "../services/todoService.js";
 import { Status } from "../core/types/status.enum.js";
 import { StateUtil } from "../core/utils/stateUtil.js";
+import { updateProgressBar } from "../handler/progressHandler.js";
 
 const todoService = ToDoService.getInstance();
 const stateManager = StateUtil.getInstance();
@@ -34,5 +35,7 @@ export function renderList(taskList: HTMLUListElement, tasks: ToDoItem[] = todoS
             li.appendChild(deleteButton);
             taskList.appendChild(li);
       });  
+
+      updateProgressBar(tasks);
 }
 
